@@ -4,8 +4,14 @@ class HomeController < ApplicationController
 
 
   def index
-    @list = List.all.shuffle.map { |x| x.youtube }
-    gon.youtube = @list
+    @all_lists = List.all 
+
+    if !params[:song_list].nil?
+      @list = List.find(params[:song_list])
+    else
+      @list = List.find(1)
+    end
+      gon.youtube = @list.songs.map { |x| x.youtube }
 
     @leaders = Leaderboard.all
     @leaders.each do |x|

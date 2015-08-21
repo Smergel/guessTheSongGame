@@ -13,11 +13,25 @@
   </div>
   <div id="scoreboard">
     <span>Leaderboard</span>
-    <% @leaders.each do |x| %>
-    <%= x.score %>
+    <% @leaders.sort { |a, b| b.score <=> a.score }.first(5).each do |a| %>
+      <ul>
+        <li>
+          <%= a.user_id %>
+          <%= a.score %>
+        </li>
+      </ul>
     <% end %>
   </div>
-  <div id="song_lists">songlists
+  <div id="song_lists">
+    <span>Song Lists</span>
+    <form action="/list" method="POST">
+      <ul>
+        <% @all_lists.map do |x| %>
+          <li><input type="radio" name="song_list" value="<%= x.id %>" /><label for="<% x.name %>"><%= x.name %></label></li>
+        <% end %>
+      </ul>
+      <input type="submit" value="Submit" />
+    </form>
   </div>
 </div>
 <div id="right">
