@@ -4,14 +4,11 @@ class HomeController < ApplicationController
 
 
   def index
-    @all_lists = List.all 
+    @user = User.find(session[:user_id]) if session[:user_id] 
 
-    if !params[:song_list].nil?
-      @list = List.find(params[:song_list])
-    else
-      @list = List.find(1)
-    end
-      gon.youtube = @list.songs.map { |x| x.youtube }
+    @all_lists = List.all
+    !params[:song_list].nil? ? @list = List.find(params[:song_list]) : @list = List.find(1)
+    gon.youtube = @list.songs.shuffle.map { |x| x.youtube }
 
     @leaders = Leaderboard.all
     @leaders.each do |x|
@@ -23,6 +20,7 @@ class HomeController < ApplicationController
     @leaderboard = Leaderboard.new
     @leaderboard.score = params[:score]
     @leaderboard.user_id = session[:user_id]
+    @leaderboard.list_id = 1
     @leaderboard.save
     redirect_to '/'
   end

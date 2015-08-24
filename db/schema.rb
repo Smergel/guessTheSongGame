@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20150820211509) do
   create_table "leaderboards", force: :cascade do |t|
     t.integer  "score"
     t.integer  "user_id"
+    t.integer  "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150820211509) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

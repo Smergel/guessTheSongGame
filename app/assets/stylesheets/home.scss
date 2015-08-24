@@ -1,95 +1,150 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$colorFont: #343434;
+
 
 body {
 	width: 100%;
 	height: 100%;
 	margin: 0px;
 	padding: 0px;
+	background-color: #343434;
+	font-family: "Helvetica";
 	overflow: hidden;
 }
+#top_bar {
+	position: fixed;
+	width: 100%;
+	height: 65px;
+	z-index: 102;
+	// box-shadow: 1px 1px 15px $colorFont;
+	background-color: white;
+	opacity: 1;
 
-#left {
-	width: 20vw;
-	height: 100vh;
-	position: relative;
-	float: left;
-	background-color: #343434;
+	.wrap {
+		height: 65px;
+		position: relative;
+	}
+	.left {
+		float: left;
 
-	#login {
-		width: 100%;
-		height: 50px;
-		background-color: darkred;
+		#trig {
+			display: inline-block;
+		}
+		#your_score {
+			display: inline-block;
+		}
 	}
-	#scoreboard {
-		width: 100%;
-		height: 300px;
-		color: white;
-		background-color: darkblue;
+	.right {
+		float: right;
+
+		#pic {
+			border-radius: 50px;
+			display: inline-block;
+
+			img {
+				border-radius: 50px;
+			}
+		}
+		#name {
+			display: inline-block;
+		}
 	}
-	#song_lists {
-		width: 100%;
-		height: 300px;
-		background-color: darkorange;
+	.pad {
+		border-radius: 50px;
+		height: 30px;
+		box-shadow: 1px 1px 15px $colorFont;
+		padding: 5px 10px;
 	}
 }
-#right {
-	background-color: ivory;
-	float: left;
-	position: relative;
-	width: 80vw;
+#left {
+	width: 300px;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-top: 65px;
+	background-color: white;
+	margin-left: -300px;
+	transition: 1.5s ease;
+	box-shadow: 1px 1px 15px $colorFont;
+	z-index: 100;
 
-	.center {
-		width: 960px;
-		margin: 5% auto;
+	.contain {
+		position: relative;
+		width: 100%;
+		height: 100%;
 		text-align: center;
 
-		#cheat_screen {
-			width: 960px;
-			height: 190px;
-			margin-top: 200px;
-			font-size: 100px;
-			color: lightgray;
-			font-style: italic;
-			position: absolute;
-			background-color: rgb(255, 255, 240);
-			opacity: 0;
+		.lead {
+			text-align: left;
+			list-style-type: decimal;
+
+			li {
+				line-height: 30px;
+			}
 		}
-		.screen_up {
-			animation: screen 10s linear;
+		.songs {
+			list-style-type: none;
+			padding-left: 15px;
+			text-align: left;
+
+			li {
+				line-height: 30px;
+			}
 		}
-		#game_over {
-			width: 960px;
-			height: 390px;
-			font-size: 50px;
-			color: red;
-			font-style: bold;
-			position: absolute;
-			background-color: ivory;
-			display: none;
+
+		.title {
+			font-size: 1.4em;
+			text-decoration: underline;
 		}
+	}
+}
+
+#right {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	z-index: 90;
+
+	#player {
+		position: absolute;
+		height: 100vh;
+		width: 100vw;
+	}
+	
+	.guess_bar {
+		width: 1140px;
+		height: 100px;
+		padding: 20px;
+		z-index: 95;
+		background-color: white;
+		box-shadow: 1px 1px 15px $colorFont;
+		position: absolute;
+		top: 87%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
 		#guess {
-			width: 500px;
-			height: 65px;
-			padding: 15px;
-			font-size: 60px;
-			background-color: ivory;
-			border-bottom: 2px solid red;
-			border-top: none;
-			border-left: none;
-			border-right: none;
+			font-size: 69px;
+			width: 870px;
+			margin-top: 8.5px;
+			border: none;
+			float: left;
+			border-bottom: 2px solid darkred;
 		}
-		#submit {
-			border: 2px solid red;
-			background-color: ivory;
+		#submit_guess {
+			border: none;
+			box-shadow: 1px 1px 15px #343434;
+			background-color: white;
 			width: 250px;
-			height: 50px;
+			height: 60px;
 			font-size: 30px;
 			margin-top: 20px;
-		}
-		#score {
-			font-size: 15px;
+			float: right;
+			color: gray;
+			border-radius: 50px;
 		}
 	}
 }

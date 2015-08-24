@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
 
- post '/list' => 'home#index'
+  post '/list' => 'home#index'
 
   get 'auth/:provider/callback', to: 'sessions#create'
 

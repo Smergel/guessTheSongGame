@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
     create(
       provider: auth['provider'], 
       uid: auth['uid'],
-      name: auth['info']['name']
+      scope: "profile, plus.me, http://gdata.youtube.com",
+      name: auth['info']['name'],
+      image_size: 50
     )
   end
 end
