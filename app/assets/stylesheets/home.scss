@@ -13,12 +13,12 @@ body {
 	font-family: "Helvetica";
 	overflow: hidden;
 }
+// The Top Nav Bar -----------------------------------
 #top_bar {
 	position: fixed;
 	width: 100%;
 	height: 65px;
 	z-index: 102;
-	// box-shadow: 1px 1px 15px $colorFont;
 	background-color: white;
 	opacity: 1;
 
@@ -28,34 +28,37 @@ body {
 	}
 	.left {
 		float: left;
+		margin-left: 30px;
 
 		#trig {
 			display: inline-block;
 		}
-		#your_score {
-			display: inline-block;
+		#trig:hover {
+			cursor: pointer;
 		}
 	}
 	.right {
 		float: right;
+		margin-right: 30px;
 
 		#pic {
-			border-radius: 50px;
-			display: inline-block;
+			float: right;
 
 			img {
 				border-radius: 50px;
 			}
 		}
-		#name {
-			display: inline-block;
-		}
 	}
 	.pad {
 		border-radius: 50px;
-		height: 30px;
-		box-shadow: 1px 1px 15px $colorFont;
-		padding: 5px 10px;
+		border: 1px solid darkred;
+	}
+	.info, .pad {
+		display: inline-block;
+		padding: 10px 15px;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 }
 #left {
@@ -134,9 +137,11 @@ body {
 			float: left;
 			border-bottom: 2px solid darkred;
 		}
+		#guess:focus, #submit_guess:focus {
+			outline: none;
+		}
 		#submit_guess {
-			border: none;
-			box-shadow: 1px 1px 15px #343434;
+			border: 1px solid darkred;
 			background-color: white;
 			width: 250px;
 			height: 60px;
@@ -145,6 +150,24 @@ body {
 			float: right;
 			color: gray;
 			border-radius: 50px;
+		}
+	}
+	#game_over {
+		display: none;
+		background-color: white;
+		border: 2px solid darkred;
+		text-align: center;
+		width: 600px;
+		height: 300px;
+		position: absolute;
+		box-shadow: 1px 1px 15px $colorFont;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 600px;
+
+		h1 {
+			font-size: 100px;
 		}
 	}
 }

@@ -21,33 +21,23 @@ function onPlayerReady(event) {
 }
 function onPlayerStateChange(event) {
   if (player.getPlayerState() == 1) {
-    var band = player.getVideoData().title.split(" - ")[0];
-    console.log(band);
+    console.log(player.getVideoData().title.split(/ - |:/)[0]);
   }
-}
-function stopVideo() {
-  player.stopVideo();
 }
 
 // The Game ------------------
 var score = 0;
 
 function submit() {
-  var band = player.getVideoData().title.split(" - ")[0];
+  var band = player.getVideoData().title.split(/ - |:/)[0];
   var guess = document.getElementById('guess').value;
   console.log(guess);
-  if (guess == band) {
-    if (player.nextVideo()) {
+  if (guess.toLowerCase().replace(/\s+/g, '') == band.toLowerCase().replace(/\s+/g, '')) {
+    if (score < gon.youtube.length) {
       player.nextVideo();
       score++;
       document.getElementById('guess').value = "";
-
       document.getElementById('score').innerHTML = score;
-
-      element = document.getElementById('cheat_screen');
-      element.classList.remove('screen_up');
-      element.offsetWidth = element.offsetWidth;
-      element.classList.add('screen_up');
     } else {
       player.stopVideo();
       score = score + 100;
@@ -55,8 +45,6 @@ function submit() {
   } else {
     player.stopVideo();
     document.getElementById('game_over').style.display = "block";
-    document.getElementById('score').innerHTML = score;
-    document.getElementById('wrong').innerHTML = band;
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", '/score', true);
@@ -83,10 +71,21 @@ function slider() {
   }
 }
 
+function reloader() {
+  location.reload(true);
+}
+
 window.onload = function() {
   slider();
 }
 
+document.onkeypress = function(e) {
+  e = e || window.event;
+  var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
+  if (charCode == 13) {
+    submit();
+  }
+}
 
 
 

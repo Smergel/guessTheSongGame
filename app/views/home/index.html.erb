@@ -5,23 +5,24 @@
 </head>
 
 <body>
-<!-- Navigation bar at the top------------------------- -->
+<!-- Navigation bar at the top  ------------------------- -->
 <div id="top_bar">
   <div class="wrap left">
     <a id="trig" class="pad">Dashboard</a>
-    <div id="your_score">Your score is: <span id="score">...</span></div>
+    <div id="your_score" class="info">Your score is: <span id="score">...</span></div>
   </div>
   <div class="wrap right">
 <% if @user %>
-    <a href="/logout" rel="nofollow" data-method="DELETE">Logout</a>
-    <div id="name"><%= @user.name %></div>
-    <div id="pic"><%= image_tag @user.image %></div>
+    <a href="/logout" class="pad" rel="nofollow" data-method="DELETE">Logout</a>
+    <div id="name" class="info"><%= @user.name %></div>
+    <div id="pic" class="info"><%= image_tag @user.image %></div>
 <% else %>
-    <a href="auth/google_oauth2">Login to have your score saved</a>
+    <div class="info">For your score to save you must</div>
+    <a href="auth/google_oauth2" id="login" class="pad">Login</a>
 <% end %>    
   </div>
 </div>
-<!-- Slide out control panel------------------------- -->
+<!-- Slide out control panel  ------------------------- -->
 <div id="left">
   <div class="contain">
     <div id="scoreboard">
@@ -30,8 +31,8 @@
 <% @leaders.sort { |a, b| b.score <=> a.score }.first(5).each do |a| %>
           <li>
             <%= User.find(a.user_id).name %>
-            <%= a.score %>
-            <%= a.list_id %>
+            <%= a.score %><br />
+            <%= List.find(a.list_id).name %>
           </li>
 <% end %>
         </ul>
@@ -52,12 +53,16 @@
     </div>
   </div>
 </div>
-<!-- Player and guess panel------------------------- -->
+<!-- Player and guess panel  ------------------------- -->
 <div id="right">
   <div id="player"></div>
   <div class="guess_bar">
     <input type="text" id="guess" placeholder="Guess The Artist..." />
-    <button onclick="submit();" href="javascript:;" id="submit_guess">Submit</button>
+    <button onclick="submit()" href="javascript:;" id="submit_guess">Submit</button>
+  </div>
+  <div id="game_over">
+    <h1>Game Over</h1>
+    <button onClick="reloader()">Play Again</button>
   </div>
 </div>
 

@@ -41,14 +41,7 @@ songs = Song.create([
   { list_id: 1, youtube: "emGri7i8Y2Y"},
   { list_id: 1, youtube: "R4oCDAXQC34"},
 
-  { list_id: 2, youtube: "BcL---4xQYA"},
-  { list_id: 2, youtube: "eDdI7GhZSQA"},
-  { list_id: 2, youtube: "TLV4_xaYynY"},
-  # { list_id: 2, youtube: "HoxRFOr_sQ0"},
-  # { list_id: 2, youtube: "4F0ytNzHDj8"},
-  { list_id: 2, youtube: "YR5ApYxkU-U"},
-  # { list_id: 2, youtube: "SHhrZgojY1Q"},
-  { list_id: 2, youtube: "mpAkMk0phOs"},
+  
   { list_id: 2, youtube: "uSquiIVLhrQ"},
   { list_id: 2, youtube: "6GxWmSVv-cY"},
   { list_id: 2, youtube: "fJ9rUzIMcZQ"},
