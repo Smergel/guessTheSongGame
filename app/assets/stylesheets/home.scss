@@ -293,14 +293,17 @@ body {
 	}
 	#top_bar {
 		height: 130px;
-
+		text-align: left;
 		.wrap {
 			height: 65px;
 			position: relative;
 		}
+		.pad {
+			font-size: 0.8em;
+		}
 		.left {
-			float: left;
-			margin-left: 30px;
+			float: none;
+			margin-left: 0 auto;
 
 			#trig {
 				display: inline-block;
@@ -308,9 +311,12 @@ body {
 			#trig:hover {
 				cursor: pointer;
 			}
+			#your_score {
+				font-size: 0.9em;
+			}
 		}
 		.right {
-			float: left;
+			float: none;
 			margin-left: 30px;
 			border-top: 2px solid lightgray;
 		}

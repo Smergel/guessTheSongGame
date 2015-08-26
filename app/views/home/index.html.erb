@@ -7,10 +7,6 @@
 <body>
 <!-- Navigation bar at the top  ------------------------- -->
 <div id="top_bar">
-  <div class="wrap left">
-    <a id="trig" class="pad">Dashboard</a>
-    <div id="your_score" class="info">Your score is: <span id="score">...</span></div>
-  </div>
   <div class="wrap right">
 <% if @user %>
     <a href="/logout" class="pad" rel="nofollow" data-method="DELETE">Logout</a>
@@ -20,6 +16,10 @@
     <div class="info">For your score to save you must</div>
     <a href="auth/google_oauth2" id="login" class="pad">Login</a>
 <% end %>    
+  </div>
+  <div class="wrap left">
+    <a id="trig" class="pad">Dashboard</a>
+    <div id="your_score" class="info">Your score is: <span id="score">...</span></div>
   </div>
 </div>
 <!-- Slide out control panel  ------------------------- -->
