@@ -33,7 +33,7 @@ function submit() {
   var guess = document.getElementById('guess').value;
   console.log(guess);
   if (guess.toLowerCase().replace(/\s+/g, '') == band.toLowerCase().replace(/\s+/g, '')) {
-    if (score < gon.youtube.length) {
+    if (score < (gon.youtube.length - 1)) {
       player.nextVideo();
       score++;
       document.getElementById('guess').value = "";
@@ -41,6 +41,11 @@ function submit() {
     } else {
       player.stopVideo();
       score = score + 100;
+
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("POST", '/score', true);
+      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xmlhttp.send("score="+score);
     }
   } else {
     player.stopVideo();
