@@ -41,6 +41,9 @@ body {
 		float: right;
 		margin-right: 30px;
 
+		a, a:visited {
+			text-decoration: none;	
+		}
 		#pic {
 			float: right;
 
@@ -56,11 +59,13 @@ body {
 	.info, .pad {
 		display: inline-block;
 		padding: 10px 15px;
+		color: gray;
 		position: relative;
 		top: 50%;
 		transform: translateY(-50%);
 	}
 }
+// Control Panel -----------------------------------
 #left {
 	width: 300px;
 	height: 100vh;
@@ -100,11 +105,21 @@ body {
 
 		.title {
 			font-size: 1.4em;
-			text-decoration: underline;
+			background-color: darkred;
+			padding: 10px 0px;
+			color: white;
+		}
+		#submit {
+			border: 1px solid darkred;
+			border-radius: 50px;
+			color: gray;
+			padding: 5px 10px;
+			background-color: white;
+			font-size: 1em;
 		}
 	}
 }
-
+// The Player ---------------------------------------
 #right {
 	position: relative;
 	width: 100vw;
@@ -157,6 +172,7 @@ body {
 		background-color: white;
 		border: 2px solid darkred;
 		text-align: center;
+		color: gray;
 		width: 600px;
 		height: 300px;
 		position: absolute;
@@ -169,15 +185,133 @@ body {
 		h1 {
 			font-size: 100px;
 		}
+
+		button {
+			border: 1px solid darkred;
+			border-radius: 50px;
+			color: gray;
+			padding: 5px 10px;
+			background-color: white;
+			font-size: 1.4em;
+		}
 	}
 }
 
-@keyframes screen {
-	0% { opacity: 1; }
-	80% { opacity: 1; }
-	90% { opacity: 1; }
-	100% { opacity: 0; }
+@media screen and (max-width: 1200px) and (min-width: 1000px) {
+	#right {
+		
+		.guess_bar {
+			width: 900px;
+
+			#guess {
+				font-size: 69px;
+				width: 740px;
+				margin-top: 8.5px;
+			}
+			#submit_guess {
+				width: 140px;
+				height: 50px;
+				font-size: 30px;
+				margin-top: 25px;
+			}
+		}
+	}
 }
+@media screen and (max-width: 999.999px) and (min-width: 720px) {
+	#right {
+		
+		.guess_bar {
+			width: 700px;
+			height: 80px;
+
+			#guess {
+				font-size: 49px;
+				width: 530px;
+				margin-top: 8.5px;
+			}
+			#submit_guess {
+				width: 150px;
+				height: 50px;
+				font-size: 30px;
+				margin-top: 15px;
+			}
+		}
+	}
+}
+@media screen and (max-width: 719.999px) and (min-width: 670px) {
+	#right {
+		
+		.guess_bar {
+			width: 100vw;
+			height: 80px;
+
+			#guess {
+				font-size: 49px;
+				margin-left: 5%;
+				width: 60%;
+				margin-top: 8.5px;
+			}
+			#submit_guess {
+				width: 25%;
+				height: 50px;
+				font-size: 30px;
+				margin-right: 5%;
+				margin-top: 15px;
+			}
+		}
+	}
+}
+@media screen and (max-width: 669.999px) {
+	#right {
+		
+		.guess_bar {
+			width: 100vw;
+			height: 80px;
+
+			#guess {
+				font-size: 29px;
+				margin-left: 5%;
+				width: 60%;
+				margin-top: 25px;
+			}
+			#submit_guess {
+				width: 25%;
+				height: 50px;
+				font-size: 20px;
+				margin-right: 5%;
+				margin-top: 15px;
+			}
+		}
+	}
+	#top_bar {
+		height: 130px;
+
+		.wrap {
+			height: 65px;
+			position: relative;
+		}
+		.left {
+			float: left;
+			margin-left: 30px;
+
+			#trig {
+				display: inline-block;
+			}
+			#trig:hover {
+				cursor: pointer;
+			}
+		}
+		.right {
+			float: left;
+			margin-left: 30px;
+			border-top: 2px solid lightgray;
+		}
+	}
+	#left {
+		margin-top: 130px;
+	}
+}
+
 
 
 

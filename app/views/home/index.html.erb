@@ -26,19 +26,19 @@
 <div id="left">
   <div class="contain">
     <div id="scoreboard">
-      <span class="title">Leaderboard: Top 5</span>
+      <div class="title">Leaderboard: Top 5</div>
         <ul class="lead">
 <% @leaders.sort { |a, b| b.score <=> a.score }.first(5).each do |a| %>
           <li>
             <%= User.find(a.user_id).name %>
             <%= a.score %><br />
-            <%= List.find(a.list_id).name %>
+            <!-- <%= List.find(a.list_id).name %> -->
           </li>
 <% end %>
         </ul>
     </div>
     <div id="song_lists">
-      <span class="title">Song Lists</span>
+      <div class="title">Song Lists</div>
       <form action="/list" method="POST">
         <ul class="songs">
 <% @all_lists.map do |x| %>
@@ -48,7 +48,7 @@
             </li>
 <% end %>
         </ul>
-        <input id="submit" type="submit" value="Submit" />
+        <input id="submit" type="submit" value="Pick" />
       </form>
     </div>
   </div>
