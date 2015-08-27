@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     !params[:song_list].nil? ? @list = List.find(params[:song_list]) : @list = List.find(1)
     gon.youtube = @list.songs.shuffle.map { |x| x.youtube }
 
-    @leaders = Leaderboard.all
+    @leaders = Leaderboard.all if !Leaderboard.all.nil?
     @leaders.each do |x|
       @score = x
     end

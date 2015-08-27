@@ -28,12 +28,13 @@
     <div id="scoreboard">
       <div class="title">Leaderboard: Top 5</div>
         <ul class="lead">
+<% if !@leaders.nil? %>
 <% @leaders.sort { |a, b| b.score <=> a.score }.first(5).each do |a| %>
           <li>
-            <%= User.find(a.user_id).name %>
+            <%= !a.user_id.nil? ? User.find(a.user_id).name : "Anon" %>
             <%= a.score %><br />
-            <!-- <%= List.find(a.list_id).name %> -->
           </li>
+<% end %>
 <% end %>
         </ul>
     </div>
